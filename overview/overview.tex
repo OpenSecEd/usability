@@ -1,0 +1,746 @@
+% $Id$
+%\documentclass[handout]{beamer}
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english,swedish]{babel}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{subfig}
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage[binary,squaren]{SIunits}
+\usepackage{csquotes}
+
+\setbeamertemplate{bibliography item}[text]
+\usepackage[natbib,style=alphabetic,maxbibnames=99,backend=bibtex8]{biblatex}
+\addbibresource{overview.bib}
+
+\mode<presentation>{%
+  \usetheme{Frankfurt}
+  \setbeamercovered{transparent}
+  \usecolortheme{seagull}
+}
+\setbeamertemplate{footline}{\insertframenumber}
+
+\title{%
+  Usable Security: An Overview
+}
+\author{Daniel Bosk\footnote{%
+  This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 
+  Unported license.
+  To view a copy of this license, visit 
+  \url{http://creativecommons.org/licenses/by-sa/3.0/}.
+}}
+\institute[MIUN IKS]{%
+  Department of Information and Communication Systems,\\
+  Mid Sweden University, SE-851\,70 Sundsvall.
+}
+\date{\today}
+
+%\pgfdeclareimage[height=0.65cm]{university-logo}{MU_logotyp_int_CMYK.pdf}
+%\logo{\pgfuseimage{university-logo}}
+
+\AtBeginSection[]{%
+  \begin{frame}<beamer>{Översikt}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage{}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{quote}
+    Humans are incapable of securely storing high-quality cryptographic keys, 
+    and they have unacceptable speed and accuracy when performing cryptographic 
+    operations.
+    (They are also large, expensive to maintain, difficult to manage, and they 
+    pollute the environment.
+    It is astonishing that these devices continue to be manufactured and 
+    deployed.
+    But they are sufficiently pervasive that we must design our protocols 
+    around their limitations.)
+  \end{quote}
+  \begin{flushright}
+    \small
+    Kaufmann, Perlman and Speciner
+  \end{flushright}
+\end{frame}
+\begin{frame}{Översikt}
+  \tableofcontents
+\end{frame}
+
+
+% Since this a solution template for a generic talk, very little can
+% be said about how it should be structured. However, the talk length
+% of between 15min and 45min and the theme suggest that you stick to
+% the following rules:  
+
+% - Exactly two or three sections (other than the summary).
+% - At *most* three subsections per section.
+% - Talk about 30s to 2min per frame. So there should be between about
+%   15 and 30 frames, all told.
+
+
+% XXX have psychology parts connect more to security
+\section{Psykologi}
+
+\subsection{Social engineering}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{figure}
+    \includegraphics[height=0.7\textheight]{security.png}
+    \caption{''Only amateurs attack machines; professionals target people.'' 
+    (Bruce Schnier).
+    Bild:~\cite{xkcd538}.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}{Vårt naturligt utvecklade skydd}
+  \begin{itemize}
+    \item Vårt naturliga skydd som utvecklats under miljontals år är baserat på 
+      \enquote{här och nu}.
+
+    \item Hotet har bytt kontext under de senaste decennierna.
+
+    \item Evolutionen är betydligt långsammare \dots
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}{Pretexting}
+  \begin{itemize}
+    \item Att ringa någon som har tillgång till informationen och låtsas vara 
+      behörig att få veta.
+
+    \item Exempelvis att låtsas vara behandlande läkare av en patient i en akut 
+      situation för att få ut information ur journalen.
+
+    \item Från verkligheten~\cite{Anderson2008sea}: Ett falskt pressmeddelande 
+      publicerades som sade att VD avgått och att vinsten skulle räknas om.
+      \begin{itemize}
+        \item Aktien föll med över \unit{60}{\%} innan det uppdagades.
+      \end{itemize}
+
+    \item Generellt går denna typ attack under \emph{social engineering}.
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{itemize}
+    \item Undersökning genomfördes i UK 1996~\cite{Anderson2008sea}.
+    \item Utbildade personalen vid vårdinrättning om pretextingattacker.
+    \item Upptäckte 30 falska samtal i veckan.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{itemize}
+    \item Vid granskning av IRS 2007 ringdes 102 personer spridda över hela 
+      organisationen upp.
+
+    \item De ombads uppge sitt användarnamn och ändra sitt lösenord till ett 
+      givet värde.
+
+    \item 62 av dem följde instruktionen.
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{itemize}
+    \item Användare säljer sina lösenord för en 
+      chokladkaka~\cite{dn2010choklad}.
+
+    \item Personer tar främmande USB-minnen och använder dem med sina datorer.
+      \begin{itemize}
+        % XXX lookup ref for 46% of people picking up usb sticks
+        \item Närmare bestämt \unit{46}{\%} av ekonomicheferna vid 500 
+          börsnoterade företag~\cite{pickupusb}.
+        \item \unit{66}{\%} innehåller sabotageprogram~\cite{Sophos2011usbmal}.
+      \end{itemize}
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{itemize}
+    \item Militära organisationer har alltid haft varandras personal som 
+      måltavla för denna typer av attacker.
+
+    \item De har fördelen att kunna utbilda sin personal.
+
+    \item Vanliga organisationer kan också utbilda sin personal.
+
+    \item Det blir desto svårare att utbilda kunder eller andra personer som 
+      berör verksamheten men inte är en del av organisationen.
+
+    \item Så detta måste lösas i gränssnittet.
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}{Phishing}
+  \begin{itemize}
+    \item Det är inte längre organisationen som angrips utan kunder och 
+      personer runt omkring.
+
+    \item Angripare återanvänder riktiga e-brev med utbytta URL:er.
+
+    \item Vill ha ut användarnamn, lösenord, personuppgifter, \dots
+  \end{itemize}
+
+  \begin{block}{Råd}
+    \begin{itemize}
+      \item Klicka aldrig på URL:er som skickats till dig.
+      \item Skicka aldrig klickbara \enquote{Klicka här}-URL:er till någon.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}{Mat Honan of Wired Magazine}
+  \begin{block}{Vad?}
+    \begin{itemize}
+      \item Angripare tog över och tog bort Googlekonto.
+      \item Tog över Twitterkonto och postade kränkande kommentarer.
+      \item Tog över AppleID-konto och tog bort alla data från alla 
+        Apple-enheter.
+    \end{itemize}
+  \end{block}
+  \begin{block}{Hur?}
+    \begin{itemize}
+      \item Brister hos Amazon.
+      \item Brister hos AppleCare.
+      \item Olycklig koppling av e-postadresser för Me.com och Gmail.
+      \item Detta gav dem även Twitter.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\subsection{Grundläggande psykologi}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{itemize}
+    \item Mentala modeller låter oss identifiera människor, ljud, 
+      \enquote{koncept} bättre än datorer.
+
+    \item Dock gör oss även sårbara när fel modell aktiveras.
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{block}{Capture errors}
+    \begin{itemize}
+      \item Ett inövat beteende används istället för korrekt.
+      \item Svänger ut på motorvägen mot Sundsvall istället för Härnösand.
+      \item Åker hem istället för till affären efter jobbet.
+      \item Klickar \enquote{automatiskt} på OK-knappen utan att tänka efter.
+    \end{itemize}
+  \end{block}
+  \begin{block}{Post-completion error}
+    \begin{itemize}
+      \item När målet är nått är uppgiften genomförd, eller \dots
+      \item Uttagsautomater som ger pengarna före kortet gör att fler glömmer 
+        kortet i automaten.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{itemize}
+    \item Handlingar som följer någon form av regel.
+    \item Vid hög kognitiv belastning kan fel regel följas, exempelvis 
+      starkaste regeln istället för lämpligaste.
+  \end{itemize}
+  \begin{example}
+    \begin{itemize}
+      \item Det är säkert då det står \enquote{https} i URL:en, eller ikonen 
+        med hänglåset.
+      \item Att hitta bankens namn är en starkare regel än att tänka på dess 
+        position; \url{https://www.swedbank.se.fraudulentbanks.com}.
+    \end{itemize}
+  \end{example}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{figure}
+    \includegraphics[height=0.7\textheight]{citations.png}
+    \caption{En kort seriestrip om hur vi är okritiska mot text som, till 
+    synes, har referenser.
+    Bild:~\cite{xkcd906}.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{itemize}
+    \item Två studier visar att tilliten till resultaten från Google är stor.
+
+    \item Studenter valde länkar högre upp i träfflistan trots att 
+      sammanfattningarna var mindre relevanta än träffar längre 
+      ned~\cite{Pan2007igw}.
+
+    \item I en nyligare genomförd studie~\cite{Epstein2013dar} visas att 
+      sökresultat kan förändra personers röstningspreferenser utan att 
+      uppmärksammas.
+
+    \item Detta gör sökmotoroptimering till ett farligt område.
+
+  \end{itemize}
+\end{frame}
+
+%\begin{frame}{\insertsubsectionhead}
+%  \begin{itemize}
+%    \item Heuristiker människor använder för beslut ligger på gränsen mellan 
+%      rationellt tänkande och direkta sinnesintryck.
+%
+%    \item Risker: I många fall tycker vi mindre om att förlora \unit{100}{kr} 
+%      vi redan har än att vinna \unit{100}{kr} vi inte har.
+%      \begin{itemize}
+%        \item Marknadsföring: ''spara \unit{100}{kr}''.
+%      \end{itemize}
+%
+%    \item Vi är dåliga på att uppskatta sannolikheter:
+%      \begin{itemize}
+%        \item Baserar härledningar på enkla analogier.
+%        \item Tillgänglighetsheuristiken: lättillgängliga data har större vikt 
+%          vid resonemang.
+%        \item Och vi jämför med nyliga händelser.
+%        \item Förankringseffekten: vi gör en initial uppskattning och 
+%          förbättrar vid behov.
+%      \end{itemize}
+%
+%  \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{\insertsubsectionhead}
+%  \begin{itemize}
+%    \item Vi är mer benägna att vara skeptiska mot något vi hört än något vi 
+%      sett.
+%    \item Överskattar risken för terroristattacker jämfört med bilolyckor.
+%    \item Beror dels på synligheten i media.
+%    \item Gilbert: ''If only gay sex caused global warming''.
+%    \item Global uppvärmning bryter inte mot någons (religiösa?) värderingar, 
+%      är långtgående hot.
+%    \item Vi är anpassade för snabba förändringar i omvärlden och tydliga akuta 
+%      hot.
+%    \item Vi är också mindre rädda när vi (tror) att vi har kontroll, 
+%      exempelvis att köra bilen jämfört med att sitta som passagerare.
+%    \item Vi är också riskaversiva: ''kvitt eller dubbelt'' går inte hem.
+%  \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{\insertsubsectionhead}
+%  \begin{itemize}
+%    \item Kan dela upp psyket i kognitivt och affektivt system.
+%
+%    \item Utvecklingsbiologin har sett att olika processer används för sociala 
+%      och fysikaliska fenomen.
+%
+%    \item Barn försöker att förklara händelser med sin förståelse för fysik, 
+%      när den inte räcker försöker de förklara med avsiktliga handlingar (det 
+%      affektiva tar vid).
+%
+%    \item Detta leder till att de tar hjälp av vuxna.
+%
+%  \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{\insertsubsectionhead}{Bieffekter}
+%  \begin{itemize}
+%    \item Människor försöker att förklara händelser med intention snarare än 
+%      situation.
+%
+%    \item Vidare leder detta till att om vi får den affektiva sidan att ta över 
+%      är personen mindre uppmärksam och sämre att uppskatta sannolikheter.
+%
+%  \end{itemize}
+%\end{frame}
+
+\subsection{Socialpsykologi}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{itemize}
+    \item Det sociala samspelet har stor inverkan på individen.
+
+    \item 1951 visades att en individ kunde bortse från uppenbara bevis bara 
+      för att följa gruppen.
+
+    \item Vidare har visats att individer kan göra helt moralvidriga saker 
+      under order från en auktoritet, Officer Scott 1995--2005:
+      \begin{itemize}
+        \item Ringde upp restaurangchefer och låtsades vara polis.
+        \item Tvingade fram strippsökningar av oskyldiga unga anställda.
+      \end{itemize}
+
+    \item Detta kan ske även utan order från en auktoritet, Stanford Prisoner 
+      Experiment 1971:
+      \begin{itemize}
+        \item 12 vakter, 12 fångar.
+        \item Vakterna blev snabbt sadistiska auktoriteter.
+      \end{itemize}
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{itemize}
+    \item Det ser ut som att \enquote{alla andra} har gjort det.
+    \item Exempelvis bedrägerier som sprids via Facebook.
+    \item Oftast är de orsakade av sabotageprogram.
+  \end{itemize}
+\end{frame}
+
+%\begin{frame}{\insertsubsectionhead}
+%  \begin{center}
+%    Sociala medier?
+%  \end{center}
+%\end{frame}
+%
+%\begin{frame}{\insertsubsectionhead}{Kognitiv dissonansteori}
+%  \begin{itemize}
+%    \item Människor tycker inte om motstridigheter.
+%
+%    \item Söker information för att bekräfta tidigare kunskap eller mentala 
+%      modeller.
+%
+%    \item Information som motstrider bortses ifrån, vill inte tro att man 
+%      tidigare haft fel eller bryta från alla andra.
+%
+%  \end{itemize}
+%\end{frame}
+
+
+\section{Autentisering}
+
+\subsection{Lösenord}
+
+\begin{frame}{\insertsubsectionhead}{Användbarhet?}
+  \begin{itemize}
+    \item Svårt att komma ihåg detaljer som används sällan.
+    \item Svårt att komma ihåg detaljer som ändras ofta.
+    \item Svårt att komma ihåg och särskilja många liknande detaljer.
+    \item Svårt att minnas ord utan betydelse.
+    \item Kan ej glömma på begäran.
+    \item Att minnas är svårare än att känna igen.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{itemize}
+    \item Enklare att komma ihåg saker som används ofta.
+    \item Enklare att minnas saker i kontext.
+    \item Men \dots
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{figure}
+    \includegraphics[height=0.65\textheight]{password_strength.png}
+    \caption{\blockcquote{xkcd936}{To anyone who understands information theory 
+        and security and is in an infuriating argument with someone who does 
+        not (possibly involving mixed case), I sincerely apologize.}
+    Bild:~\cite{xkcd936}.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}{Alternativ}
+  \begin{quote}
+    Något du har, något du vet, eller något du är.
+  \end{quote}
+  Eller enligt Simson Garfinkel:
+  \begin{quote}
+    Something you had once, something you've forgotten, or something you once 
+    were.
+  \end{quote}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}{Alternativ?}
+  \begin{description}
+    \item[Vet] Lösenord.
+    \item[Har] Koddosa, som oftast skyddas av ett lösenord.
+    \item[Är] Fingeravtryck, som oftast kombineras med ett lösenord.
+  \end{description}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}{Komplexiteten hos lösenord}
+  \begin{itemize}
+    \item PIN-koden för betalkortet, har endast tre försök sedan slutar kortet 
+      att fungera.
+
+    \item Lösenordet för webbmailen, vore väldigt jobbigt om den blev låst.
+      Hur låsa upp?
+
+    \item Krypterat data, har ej kontroll över antal försök.
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}{Andra typer av lösenord}
+  \begin{itemize}
+    \item Personnummer (även användarnamn).
+    \item Kortnummer, medlemsnummer.
+    \item Husdjurets namn.
+    \item \enquote{Mother's maiden name}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}{Säkerhetsfrågor}
+  \begin{figure}
+    \includegraphics[height=0.65\textheight]{pet_security_question.png}
+    \caption{En seriestrip som antyder det bisarra med säkerhetsfrågor.
+    Namnge dina husdjur med omsorg, du kommer att använda deras namn som 
+    säkerhetsfråga resten av livet.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}{Problem att lösa}
+  \begin{enumerate}
+    \item Kommer användaren att mata in rätt lösenord tillräckligt ofta?
+
+    \item Kan användaren minnas lösenordet, eller kommer denne att skriva ner 
+      det på en lapp?
+      Väljer användaren ett lösenord som är lätt att gissa?
+
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}{Att mata in lösenord}
+  \begin{itemize}
+    \item Muntligen ange ett nummer: hotel-, biljettbokningar, hämta ut paket 
+      från Posten.
+
+    \item Mata in långa sifferkombinationer: mjukvarulicenser, refillkort, 
+      OCR-nummer för räkningar.
+
+    \item Att skriva dem i grupper om tre till fyra underlättar avsevärt.
+
+    \item Längre lösenord, större sannolikhet att skriva fel.
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}{Att komma ihåg lösenord}
+  \begin{itemize}
+    \item Välj ett lösenord du inte kan minnas och skriv inte ner det.
+
+    \item xkcd:s \enquote{correct horse battery staple}, enkelt att komma ihåg 
+      men svårare att skriva.
+
+    \item Men om man bara behöver skriva det sällan, då är det mindre problem.
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{itemize}
+    \item \citet{Komanduri2011opa} gjorde en undersökning om säkerhet och 
+      användbarhet hos olika lösenordspolicyer.
+
+    \item Hade följande olika policyer:
+      \begin{description}
+        \item[basic8] Minst åtta tecken.
+
+        \item[dictionary8] Minst åtta tecken, får inte finns med i ordlistan.
+
+        \item[comprehensive8] Minst åtta tecken, måste innehålla små och stora 
+          bokstäver, samt siffror och specialtecken.
+
+        \item[basic16] Minst 16 tecken.
+      \end{description}
+
+    \item Säkerheten var bäst hos basic16 (högst entropi), comprehensive8 var 
+      näst bäst.
+
+    \item Användbarhetsmässigt var basic16 bäst: användarna hade färre problem 
+      att skriva in lösenordet och att komma ihåg det.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}{Lösenord från verkligheten}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      Från~\cite{Oberheide2010bao}:
+      \begin{itemize}
+        \item 123456
+        \item password
+        \item 12345678
+        \item qwerty
+        \item abc123
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      Från~\cite{Cluley2012twp}:
+      \begin{itemize}
+        \item 123456
+        \item password
+        \item welcome
+        \item ninja
+        \item abc123
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% XXX move password cracking numbers to infotheory lecture
+%\begin{frame}{\insertsubsectionhead}{Attackera ett konto eller alla}
+%  \begin{block}{Ett givet konto}
+%    \begin{itemize}
+%      \item Svårt med lösenordsknäckning, måste testa \(|P|/2\) där \(P\) är 
+%        mängden av alla lösenord.
+%      \item Med phishing kallas detta \emph{spear phishing}.
+%    \end{itemize}
+%  \end{block}
+%  \begin{block}{Alla konton på ett system}
+%    \begin{itemize}
+%      \item Avsevärt mycket enkare, närmare \(|P|/|U|\) där \(U\) är mängden av 
+%        användare.
+%      \item Kan använda phishing, räcker med att en användare faller för det.
+%    \end{itemize}
+%  \end{block}
+%  \begin{block}{Alla konton på alla system}
+%    \begin{itemize}
+%      \item Knäck lösenord för ett enkelt system.
+%      \item Phishing för ett system med dåliga policyer.
+%      \item Sannolikt återanvänds lösenord i andra system.
+%    \end{itemize}
+%  \end{block}
+%\end{frame}
+
+\begin{frame}{\insertsubsectionhead}{Användarträning}
+  \begin{itemize}
+    \item Träna användare att använda säkra lösenord.
+    \item Ge dem säkra lösenord.
+    \item Värdera lösenordet lika starkt som det som skyddas.
+    \item Ge negativ återkoppling på dåliga lösenord.
+%    \item Låt vakter gå runt på kvällen och städa undan eventuella lösenord 
+%      nedskrivna på lappar.
+    \item Men begär inte något de inte klarar av, då kommer policyn aldrig 
+      följas.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}{Användarträning -- social engineering}
+  \begin{itemize}
+    \item Marknadsföringsavdelningen vill skicka länkar.
+    \item Var konsistent, ge inte användaren delade budskap.
+    \item Låt dem inte göra det om ni försöker att träna användarna att använda 
+      bokmärken eller skriva URL:en.
+    \item Outsourceade kundundersökningar: från er (?), men med konstiga 
+      URL:er.
+      \enquote{There's something phishy going on.}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}{Trusted Path}
+  \begin{itemize}
+    \item Vi måste veta om vi kan lita på kommunikationskanalen.
+    \item Är det ett riktigt tangentbord, eller är det utbytt mot ett som 
+      sparar alla tangenttryckningar?
+    \item Är det en dator på ett café?
+      Då finns risken att det är en keylogger installerad.
+  \end{itemize}
+\end{frame}
+
+\subsection{Bättre lösningar?}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{itemize}
+    \item Lösenord är har i sig dålig användbarhet.
+
+    \item Finns olika metoder för att förbättra användbarheten.
+      \begin{itemize}
+        \item Single sign-on, exempelvis via Google eller Facebook.
+        \item Spara alla lösenord krypterat och fyll automatiskt i dem på 
+          webben.
+          (Sabba inte detta alternativ med JavaScript.)
+        \item Komplettera med koddosa.
+      \end{itemize}
+
+    \item Då har vi reducerat \(N\) lösenord till endast ett lösenord att komma 
+      ihåg.
+
+    \item BankID verkar också vara en robust lösning.
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}{BankID}
+  \begin{itemize}
+    \item Innebär att vi måste ha någonting: certifikatet.
+    \item Vi måste veta någonting: lösenordet för certifikatet.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}{BankID hos Swedbank}
+  % XXX get screenshots from BankID for Swedbank
+  \begin{block}{Inloggning}
+    I identify myself at:
+    
+    Swedbank och Sparbankerna
+  \end{block}
+  \begin{block}{Godkänna (signera) överföring}
+    I sign at:
+    
+    Swedbank och Sparbankerna
+
+    \vspace{1em}
+    Text to be signed:
+
+    Jag godkänner överföring med totalsumman 60,00 kr.
+    Uppdraget lämnar jag till banken 2013-04-14 kl 21:25:43.
+  \end{block}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}{BankID hos Skatteverket}
+  % XXX get screenshots from BankID for Skatteverket
+  \begin{block}{Inloggning}
+    I identify myself at:
+    
+    Skatteverket
+  \end{block}
+  \begin{block}{Signering av deklaration}
+    I sign at:
+
+    Skatteverket
+
+    \vspace{1em}
+    Text to be signed:
+
+    Härmed undertecknar jag uppgifterna jag tidigare lämnat in.
+  \end{block}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}{BankID}
+  \begin{itemize}
+    \item Har separata mekanismer för identifiering och signering.
+    \item Kan alltså inte lura användaren att signera en överföring vid 
+      inloggning.
+    \item Har ett användbart och pålitligt användargränssnitt.
+%    \item Jämför med användargränssnittet till chippet på betalkortet (precis, 
+%      det finns inget).
+  \end{itemize}
+\end{frame}
+
+% XXX add slides on yubikey and lastpass
+
+\begin{frame}{\insertsubsectionhead}
+  Utforma autentisering för att användaren inte enkelt ska kunna bli lurad!
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[allowframebreaks]{Referenser}
+	\small
+  \printbibliography{}
+\end{frame}
+
+\end{document}
