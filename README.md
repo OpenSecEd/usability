@@ -1,4 +1,4 @@
-Module: Applied Cryptography (usability)
+Module: Usable Security (usability)
 ===============================================================================
 
 This is a learning module for Usable Security.  It's aim is to give the 
