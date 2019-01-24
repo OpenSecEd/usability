@@ -1,4 +1,5 @@
-SUBDIR=		./overview
+SUBDIR+= 	attacking-humans
+SUBDIR+= 	psychology
 
 
 INCLUDE_MAKEFILES=makefiles
