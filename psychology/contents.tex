@@ -1,0 +1,317 @@
+% Since this a solution template for a generic talk, very little can
+% be said about how it should be structured. However, the talk length
+% of between 15min and 45min and the theme suggest that you stick to
+% the following rules:  
+
+% - Exactly two or three sections (other than the summary).
+% - At *most* three subsections per section.
+% - Talk about 30s to 2min per frame. So there should be between about
+%   15 and 30 frames, all told.
+
+
+\section{How humans function}
+
+\subsection{Grundläggande psykologi}
+
+\begin{frame}
+  \begin{block}{Mental models}
+    \begin{itemize}
+      \item Mentala modeller låter oss identifiera människor, ljud, 
+        \enquote{koncept} bättre än datorer.
+
+      \item Dock gör oss även sårbara när fel modell aktiveras eller modellen 
+        inte är i linje med verkligheten.
+    \end{itemize}
+  \end{block}
+
+  \pause{}
+
+  \begin{example}[Säker anslutning]
+    \begin{itemize}
+      \item Användaren förstår inte SSL/TLS\@.
+      \item Hänglåset betyder säkerhet.
+      \item En phishingsida har ett signerat certifikat.
+    \end{itemize}
+  \end{example}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Capture errors}
+    Ett inövat beteende används istället för korrekt.
+  \end{block}
+
+  \pause{}
+
+  \begin{example}
+    \begin{itemize}
+      \item Svänger ut på motorvägen mot Sundsvall istället för Härnösand.
+      \item Åker hem istället för till affären efter jobbet.
+      \item Klickar \enquote{automatiskt} på OK-knappen utan att tänka efter.
+    \end{itemize}
+  \end{example}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Post-completion error}
+    När målet är nått är uppgiften genomförd, eller \dots
+  \end{block}
+
+  \pause{}
+
+  \begin{example}
+    \begin{itemize}
+      \item Uttagsautomater som ger pengarna före kortet gör att fler glömmer 
+        kortet i automaten.
+    \end{itemize}
+  \end{example}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \includegraphics[height=0.7\textheight]{citations.png}
+    \caption{En kort seriestrip om hur vi är okritiska mot text som, till 
+    synes, har referenser.
+    Bild:~\cite{xkcd906}.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Cognitive load}
+    \begin{itemize}
+      \item Kognitiv belastning påverkar oss hårt.
+      \item Handlingar som följer någon form av regel.
+      \item Vid hög kognitiv belastning kan fel regel följas, exempelvis 
+        starkaste regeln istället för lämpligaste.
+    \end{itemize}
+  \end{block}
+  
+  \pause{}
+
+  \begin{example}
+    \begin{itemize}
+      \item Det är säkert då det står \enquote{https} i URL:en, eller ikonen 
+        med hänglåset.
+      \item Att hitta bankens namn är en starkare regel än att tänka på dess 
+        position; \url{https://www.swedbank.se.fraudulentbanks.com}.
+    \end{itemize}
+  \end{example}
+\end{frame}
+
+\subsection{Biases}
+
+\begin{frame}
+  \begin{block}{Automation bias}
+    We trust the computer to have done the work properly, so we relax.
+  \end{block}
+  \begin{example}
+    \begin{itemize}
+      \item Två studier visar att tilliten till resultaten från Google är stor.
+
+      \item Studenter valde länkar högre upp i träfflistan trots att 
+        sammanfattningarna var mindre relevanta än träffar längre 
+        ned~\cite{Pan2007igw}.
+
+      \item I en nyligare genomförd studie~\cite{Epstein2013dar} visas att 
+        sökresultat kan förändra personers röstningspreferenser utan att 
+        uppmärksammas.
+
+      \item Detta gör sökmotoroptimering till ett farligt område.
+
+    \end{itemize}
+  \end{example}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Confirmation bias}
+    We seek out information that confirms our beliefs.
+  \end{block}
+
+  \pause{}
+
+  \begin{example}
+    \begin{itemize}
+      \item This makes us bad at testing hypotheses.
+      \item Test if the site is a phishing site by giving it username and 
+        password.
+      \item If the site knows them, it must be legit.
+    \end{itemize}
+  \end{example}
+
+  \pause{}
+
+  \begin{block}{Reverse-authorization fallacy}
+    Give me the username and password and I'll verify them.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Disconfirmation bias}
+    We rather accept plausible but wrong, than implausible but correct.
+  \end{block}
+
+  \pause{}
+
+  \begin{example}
+    \begin{itemize}
+      \item If the website behaves as the bank \dots
+      \item Then it must be the bank \dots
+      \item Although it's run from Russia.
+    \end{itemize}
+  \end{example}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Projection bias}
+    Everyone thinks like me.
+  \end{block}
+
+  \begin{example}
+    \begin{itemize}
+      \item Someone designs a system and expects the users to think like the 
+        designer.
+      \item If you're logged in, then you must be a good guy like me.
+    \end{itemize}
+  \end{example}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Blind-spot bias}
+    Biases are unconscious, that makes them difficult to see for conscious 
+    thought.
+  \end{block}
+\end{frame}
+
+%\subsection{How me make decisions}
+%
+%\begin{frame}
+%  \begin{itemize}
+%    \item Heuristiker människor använder för beslut ligger på gränsen mellan 
+%      rationellt tänkande och direkta sinnesintryck.
+%
+%    \item Risker: I många fall tycker vi mindre om att förlora \unit{100}{kr} 
+%      vi redan har än att vinna \unit{100}{kr} vi inte har.
+%      \begin{itemize}
+%        \item Marknadsföring: ''spara \unit{100}{kr}''.
+%      \end{itemize}
+%
+%    \item Vi är dåliga på att uppskatta sannolikheter:
+%      \begin{itemize}
+%        \item Baserar härledningar på enkla analogier.
+%        \item Tillgänglighetsheuristiken: lättillgängliga data har större vikt 
+%          vid resonemang.
+%        \item Och vi jämför med nyliga händelser.
+%        \item Förankringseffekten: vi gör en initial uppskattning och 
+%          förbättrar vid behov.
+%      \end{itemize}
+%
+%  \end{itemize}
+%\end{frame}
+%
+%\begin{frame}
+%  \begin{itemize}
+%    \item Vi är mer benägna att vara skeptiska mot något vi hört än något vi 
+%      sett.
+%    \item Överskattar risken för terroristattacker jämfört med bilolyckor.
+%    \item Beror dels på synligheten i media.
+%    \item Gilbert: ''If only gay sex caused global warming''.
+%    \item Global uppvärmning bryter inte mot någons (religiösa?) värderingar, 
+%      är långtgående hot.
+%    \item Vi är anpassade för snabba förändringar i omvärlden och tydliga akuta 
+%      hot.
+%    \item Vi är också mindre rädda när vi (tror) att vi har kontroll, 
+%      exempelvis att köra bilen jämfört med att sitta som passagerare.
+%    \item Vi är också riskaversiva: ''kvitt eller dubbelt'' går inte hem.
+%  \end{itemize}
+%\end{frame}
+%
+%\begin{frame}
+%  \begin{itemize}
+%    \item Kan dela upp psyket i kognitivt och affektivt system.
+%
+%    \item Utvecklingsbiologin har sett att olika processer används för sociala 
+%      och fysikaliska fenomen.
+%
+%    \item Barn försöker att förklara händelser med sin förståelse för fysik, 
+%      när den inte räcker försöker de förklara med avsiktliga handlingar (det 
+%      affektiva tar vid).
+%
+%    \item Detta leder till att de tar hjälp av vuxna.
+%
+%  \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Bieffekter}
+%  \begin{itemize}
+%    \item Människor försöker att förklara händelser med intention snarare än 
+%      situation.
+%
+%    \item Vidare leder detta till att om vi får den affektiva sidan att ta över 
+%      är personen mindre uppmärksam och sämre att uppskatta sannolikheter.
+%
+%  \end{itemize}
+%\end{frame}
+
+\subsection{Socialpsykologi}
+
+\begin{frame}
+  \begin{itemize}
+    \item Det sociala samspelet har stor inverkan på individen.
+
+    \item 1951 visades att en individ kunde bortse från uppenbara bevis bara 
+      för att följa gruppen.
+
+      \pause{}
+
+    \item Vidare har visats att individer kan göra helt moralvidriga saker 
+      under order från en auktoritet, Officer Scott 1995--2005:
+      \begin{itemize}
+        \item Ringde upp restaurangchefer och låtsades vara polis.
+        \item Tvingade fram strippsökningar av oskyldiga unga anställda.
+      \end{itemize}
+
+      \pause{}
+
+    \item Detta kan ske även utan order från en auktoritet, Stanford Prisoner 
+      Experiment 1971:
+      \begin{itemize}
+        \item 12 vakter, 12 fångar.
+        \item Vakterna blev snabbt sadistiska auktoriteter.
+      \end{itemize}
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{itemize}
+    \item Sociala medier?
+
+      \pause{}
+
+    \item Det ser ut som att \enquote{alla andra} har gjort det.
+    \item Exempelvis bedrägerier som sprids via Facebook.
+    \item Oftast är de orsakade av sabotageprogram.
+  \end{itemize}
+\end{frame}
+
+%\begin{frame}{Kognitiv dissonansteori}
+%  \begin{itemize}
+%    \item Människor tycker inte om motstridigheter.
+%
+%    \item Söker information för att bekräfta tidigare kunskap eller mentala 
+%      modeller.
+%
+%    \item Information som motstrider bortses ifrån, vill inte tro att man 
+%      tidigare haft fel eller bryta från alla andra.
+%
+%  \end{itemize}
+%\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[allowframebreaks]
+	\small
+  \printbibliography
+\end{frame}
+
