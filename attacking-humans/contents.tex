@@ -1,0 +1,189 @@
+% Since this a solution template for a generic talk, very little can
+% be said about how it should be structured. However, the talk length
+% of between 15min and 45min and the theme suggest that you stick to
+% the following rules:  
+
+% - Exactly two or three sections (other than the summary).
+% - At *most* three subsections per section.
+% - Talk about 30s to 2min per frame. So there should be between about
+%   15 and 30 frames, all told.
+
+
+% XXX have psychology parts connect more to security
+\section{Social engineering}
+
+\subsection{What's social engineering?}
+
+\begin{frame}
+  \begin{figure}
+    \includegraphics[height=0.7\textheight]{security.png}
+    \caption{''Only amateurs attack machines; professionals target people.'' 
+    (Bruce Schnier).
+    Bild:~\cite{xkcd538}.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \begin{itemize}
+    \item We figure out the weaknesses in human psychology.
+    \item Then we exploit these to our advantage.
+  \end{itemize}
+\end{frame}
+
+\subsection{Is it a problem?}
+
+\begin{frame}
+  \begin{block}{Vårt naturligt utvecklade skydd}
+    \begin{itemize}
+      \item Vårt naturliga skydd som utvecklats under miljontals år är baserat på 
+        \enquote{här och nu}.
+
+      \item Hotet har bytt kontext under de senaste decennierna.
+
+      \item Evolutionen är betydligt långsammare \dots
+
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{definition}[Pretexting]
+    \begin{itemize}
+      \item Att ringa någon som har tillgång till informationen och låtsas vara 
+        behörig att få veta.
+
+      \item Exempelvis att låtsas vara behandlande läkare av en patient i en akut 
+        situation för att få ut information ur journalen.
+    \end{itemize}
+  \end{definition}
+\end{frame}
+
+\begin{frame}
+  \begin{example}
+    \begin{itemize}
+      \item Undersökning genomfördes i UK 1996~\cite{Anderson2008sea}.
+      \item Utbildade personalen vid vårdinrättning om pretextingattacker.
+      \item Upptäckte 30 falska samtal i veckan.
+    \end{itemize}
+  \end{example}
+\end{frame}
+
+\begin{frame}
+  \begin{example}
+    \begin{itemize}
+      \item Från verkligheten~\cite{Anderson2008sea}: Ett falskt pressmeddelande 
+        publicerades som sade att VD avgått och att vinsten skulle räknas om.
+        \begin{itemize}
+          \item Aktien föll med över \unit{60}{\%} innan det uppdagades.
+        \end{itemize}
+
+      \item Generellt går denna typ attack under \emph{social engineering}.
+
+    \end{itemize}
+  \end{example}
+\end{frame}
+
+\begin{frame}
+  \begin{example}
+    \begin{itemize}
+      \item Vid granskning av IRS 2007 ringdes 102 personer spridda över hela 
+        organisationen upp.
+
+      \item De ombads uppge sitt användarnamn och ändra sitt lösenord till ett 
+        givet värde.
+
+      \item 62 av dem följde instruktionen.
+
+    \end{itemize}
+  \end{example}
+\end{frame}
+
+\begin{frame}
+  \begin{example}
+    Användare säljer sina lösenord för en chokladkaka~\cite{dn2010choklad}.
+  \end{example}
+
+  \begin{example}
+    \begin{itemize}
+      \item Personer tar främmande USB-minnen och använder dem med sina datorer.
+        \begin{itemize}
+            % XXX lookup ref for 46% of people picking up usb sticks
+          \item Närmare bestämt \unit{46}{\%} av ekonomicheferna vid 500 
+            börsnoterade företag~\cite{pickupusb}.
+          \item \unit{66}{\%} innehåller sabotageprogram~\cite{Sophos2011usbmal}.
+        \end{itemize}
+
+    \end{itemize}
+  \end{example}
+\end{frame}
+
+\subsection{Phishing}
+
+\begin{frame}
+  \begin{itemize}
+    \item Militära organisationer har alltid haft varandras personal som 
+      måltavla för denna typer av attacker.
+
+    \item De har fördelen att kunna utbilda sin personal.
+
+    \item Vanliga organisationer kan också utbilda sin personal.
+
+    \item Det blir desto svårare att utbilda kunder eller andra personer som 
+      berör verksamheten men inte är en del av organisationen.
+
+    \item Så detta måste lösas i gränssnittet.
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{itemize}
+    \item Det är inte längre organisationen som angrips utan kunder och 
+      personer runt omkring.
+
+    \item Angripare återanvänder riktiga e-brev med utbytta URL:er.
+
+    \item Vill ha ut användarnamn, lösenord, personuppgifter, \dots
+  \end{itemize}
+
+  \begin{block}{Råd}
+    \begin{itemize}
+      \item Klicka aldrig på URL:er som skickats till dig.
+      \item Skicka aldrig klickbara \enquote{Klicka här}-URL:er till någon.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\subsection{An example}
+
+\begin{frame}
+  \begin{example}[Mat Honan~\cite{MatHonan}]
+    \begin{itemize}
+      \item Angripare tog över och tog bort Googlekonto.
+      \item Tog över Twitterkonto och postade kränkande kommentarer.
+      \item Tog över AppleID-konto och tog bort alla data från alla 
+        Apple-enheter.
+    \end{itemize}
+  \end{example}
+\end{frame}
+
+\begin{frame}
+  \begin{example}[Hur?~\cite{MatHonan}]
+    \begin{itemize}
+      \item Brister hos Amazon.
+      \item Brister hos AppleCare.
+      \item Olycklig koppling av e-postadresser för Me.com och Gmail.
+      \item Detta gav dem även Twitter.
+    \end{itemize}
+  \end{example}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[allowframebreaks]
+	\small
+  \printbibliography
+\end{frame}
+

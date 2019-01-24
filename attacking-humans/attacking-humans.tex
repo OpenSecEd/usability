@@ -14,7 +14,7 @@
 
 \setbeamertemplate{bibliography item}[text]
 \usepackage[natbib,style=alphabetic,maxbibnames=99]{biblatex}
-\addbibresource{overview.bib}
+\addbibresource{attacking-humans.bib}
 
 \mode<presentation>{%
   \usetheme{Berlin}
@@ -23,7 +23,7 @@
 %\setbeamertemplate{footline}{\insertframenumber}
 
 \title{%
-  Security Usability: An Overview
+  Attacking humans
 }
 \author{Daniel Bosk}
 \institute[MIUN IKS]{%
@@ -66,51 +66,5 @@
   \end{flushright}
 \end{frame}
 
-
-% Since this a solution template for a generic talk, very little can
-% be said about how it should be structured. However, the talk length
-% of between 15min and 45min and the theme suggest that you stick to
-% the following rules:  
-
-% - Exactly two or three sections (other than the summary).
-% - At *most* three subsections per section.
-% - Talk about 30s to 2min per frame. So there should be between about
-%   15 and 30 frames, all told.
-
-
-\section{Take-away}
-
-\subsection{User conditioning}
-
-\begin{frame}
-  \begin{itemize}
-    \item Träna användare att använda säkra lösenord.
-    \item Gör det \emph{enkelt} att använda säkra lösenord.
-    \item Värdera lösenordet lika starkt som det som skyddas.
-    \item Ge negativ återkoppling på dåliga lösenord.
-    \item Men begär inte något de inte klarar av, då kommer policyn aldrig 
-      följas.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \begin{itemize}
-    \item Marknadsföringsavdelningen vill skicka länkar.
-    \item Var konsistent, ge inte användaren delade budskap.
-    \item Låt dem inte göra det om ni försöker att träna användarna att använda 
-      bokmärken eller skriva URL:en.
-    \item Outsourceade kundundersökningar: från er (?), men med konstiga 
-      URL:er:
-      \enquote{There's something phishy going on.}
-  \end{itemize}
-\end{frame}
-
-
-%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}[allowframebreaks]
-	\small
-  \printbibliography{}
-\end{frame}
-
+\mode<all>{\input{contents.tex}}
 \end{document}
