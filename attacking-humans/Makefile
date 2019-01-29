@@ -6,10 +6,16 @@ SRC+= 		contents.tex
 
 FIGURES+= 	security.png
 
-attacking-humans.pdf: ${SRC} ${FIGURES}
+DEPENDS+= 	../beamer-didactic/beamer-didactic.sty
+
+attacking-humans.pdf: ${SRC} ${FIGURES} ${DEPENDS}
 
 security.png:
 	wget -O $@ http://imgs.xkcd.com/comics/security.png 
+
+${DEPENDS}:
+	${MAKE} -C $(dir $@) $(notdir $@)
+	${LN} $@
 
 
 .PHONY: clean
@@ -20,6 +26,8 @@ clean:
 .PHONY: distclean
 distclean:
 	${RM} security.png
+	$(foreach f,$(notdir ${DEPENDS}),${RM} $f;)
+	$(foreach d,$(dir ${DEPENDS}),${MAKE} -C $d clean distclean;)
 
 
 INCLUDE_MAKEFILES=../makefiles

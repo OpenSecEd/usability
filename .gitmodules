@@ -2,3 +2,6 @@
 	path = makefiles
 	url = https://github.com/dbosk/makefiles.git
 	branch = master
+[submodule "beamer-didactic"]
+	path = beamer-didactic
+	url = https://github.com/dbosk/beamer-didactic.git
