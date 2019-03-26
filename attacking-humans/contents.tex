@@ -57,15 +57,12 @@
 \subsection{Is it a problem?}
 
 \begin{frame}
-  \begin{block}{Vårt naturligt utvecklade skydd}
+  \begin{block}{Our naturally developed protection}
     \begin{itemize}
-      \item Vårt naturliga skydd som utvecklats under miljontals år är baserat på 
-        \enquote{här och nu}.
-
-      \item Hotet har bytt kontext under de senaste decennierna.
-
-      \item Evolutionen är betydligt långsammare \dots
-
+      \item Our natural protection has developed over millions of years.
+      \item It's based on \enquote{here and now}.
+      \item The threat has changed context during the past decades.
+      \item Evolution isn't that fast.
     \end{itemize}
   \end{block}
 \end{frame}
@@ -73,21 +70,17 @@
 \begin{frame}
   \begin{definition}[Pretexting]
     \begin{itemize}
-      \item Att ringa någon som har tillgång till informationen och låtsas vara 
-        behörig att få veta.
-
-      \item Exempelvis att låtsas vara behandlande läkare av en patient i en akut 
-        situation för att få ut information ur journalen.
+      \item To call someone who has access to information and pretend to be 
+        authorized to know it.
     \end{itemize}
   \end{definition}
-\end{frame}
 
-\begin{frame}
+  \pause
+
   \begin{example}
     \begin{itemize}
-      \item Undersökning genomfördes i UK 1996~\cite{Anderson2008sea}.
-      \item Utbildade personalen vid vårdinrättning om pretextingattacker.
-      \item Upptäckte 30 falska samtal i veckan.
+      \item \Eg pretend to be a physician in another hospital, have an urgency 
+        and need some information from the patient records.
     \end{itemize}
   \end{example}
 \end{frame}
@@ -95,14 +88,19 @@
 \begin{frame}
   \begin{example}
     \begin{itemize}
-      \item Från verkligheten~\cite{Anderson2008sea}: Ett falskt pressmeddelande 
-        publicerades som sade att VD avgått och att vinsten skulle räknas om.
-        \begin{itemize}
-          \item Aktien föll med över \unit{60}{\%} innan det uppdagades.
-        \end{itemize}
+      \item Study in the UK in 1996~\cite{Anderson2008sea}.
+      \item Trained staff to spot pretexting attempts.
+      \item Discovered 30 false call per week \dots
+    \end{itemize}
+  \end{example}
+\end{frame}
 
-      \item Generellt går denna typ attack under \emph{social engineering}.
-
+\begin{frame}
+  \begin{example}
+    \begin{itemize}
+      \item A false press release saying that the CEO had resigned and the 
+        profits would be recalculated~\cite{Anderson2008sea}.
+      \item The company stock dropped more than \SI{60}{\%}.
     \end{itemize}
   \end{example}
 \end{frame}
@@ -123,82 +121,86 @@
 \end{frame}
 
 \begin{frame}
-  \begin{example}
-    Användare säljer sina lösenord för en chokladkaka~\cite{dn2010choklad}.
-  \end{example}
-
-  \begin{example}
+  \begin{remark}
     \begin{itemize}
-      \item Personer tar främmande USB-minnen och använder dem med sina datorer.
-        \begin{itemize}
-            % XXX lookup ref for 46% of people picking up usb sticks
-          \item Närmare bestämt \unit{46}{\%} av ekonomicheferna vid 500 
-            börsnoterade företag~\cite{pickupusb}.
-          \item \unit{66}{\%} innehåller sabotageprogram~\cite{Sophos2011usbmal}.
-        \end{itemize}
-
+      \item This type of attack is \emph{social engineering}.
     \end{itemize}
-  \end{example}
+  \end{remark}
 \end{frame}
 
 \subsection{Phishing}
 
 \begin{frame}
-  \begin{itemize}
-    \item Militära organisationer har alltid haft varandras personal som 
-      måltavla för denna typer av attacker.
+  \begin{remark}
+    \begin{itemize}
+      \item Military organizations have always targeted each other like this.
+      \item They trained their staff and kept alertness thorough attacks.
 
-    \item De har fördelen att kunna utbilda sin personal.
+        \pause
 
-    \item Vanliga organisationer kan också utbilda sin personal.
+      \item Civilian organizations, \eg banks, can also train their staff.
 
-    \item Det blir desto svårare att utbilda kunder eller andra personer som 
-      berör verksamheten men inte är en del av organisationen.
+        \pause
 
-    \item Så detta måste lösas i gränssnittet.
-
-  \end{itemize}
+      \item However, it's difficult to train all their customers.
+      \item This must be solved through usability.
+    \end{itemize}
+  \end{remark}
 \end{frame}
 
 \begin{frame}
-  \begin{itemize}
-    \item Det är inte längre organisationen som angrips utan kunder och 
-      personer runt omkring.
-
-    \item Angripare återanvänder riktiga e-brev med utbytta URL:er.
-
-    \item Vill ha ut användarnamn, lösenord, personuppgifter, \dots
-  \end{itemize}
-
-  \begin{block}{Råd}
+  \begin{question}
     \begin{itemize}
-      \item Klicka aldrig på URL:er som skickats till dig.
-      \item Skicka aldrig klickbara \enquote{Klicka här}-URL:er till någon.
+      \item How do you know the card terminal in the supermarket is legit?
+      \item How to you know if it's a phishing URL or marketing using a service 
+        to track clicks?
     \end{itemize}
-  \end{block}
+  \end{question}
 
+  \begin{remark}
+    \begin{itemize}
+      \item Probably you don't, like everyone else.
+    \end{itemize}
+  \end{remark}
 \end{frame}
 
-\subsection{An example}
+\begin{frame}
+  \begin{summary}
+    \begin{itemize}
+      \item Technology makes it easier to attack customers.
+      \item The attackers reuse real emails, change URLs.
+      \item The attackers want data: usernames, passwords, personal information 
+        for social engineering attacks.
+    \end{itemize}
+  \end{summary}
+
+  \begin{remark}
+    \begin{itemize}
+      \item Try Google's phishing quiz: 
+        \url{https://phishingquiz.withgoogle.com/}.
+    \end{itemize}
+  \end{remark}
+\end{frame}
+
+\subsection{A more elaborate example}
 
 \begin{frame}
   \begin{example}[Mat Honan~\cite{MatHonan}]
     \begin{itemize}
-      \item Angripare tog över och tog bort Googlekonto.
-      \item Tog över Twitterkonto och postade kränkande kommentarer.
-      \item Tog över AppleID-konto och tog bort alla data från alla 
-        Apple-enheter.
+      \item Attackers took over and removed his Google account.
+      \item They took over his Twitter account and posted \enquote{unfriendly} 
+        comments.
+      \item They took over his AppleID account and removed all data from all 
+        his Apple devices.
     \end{itemize}
   \end{example}
 \end{frame}
 
 \begin{frame}
-  \begin{example}[Hur?~\cite{MatHonan}]
+  \begin{example}[Mat Honan, how?~cite{MatHonan}]
     \begin{itemize}
-      \item Brister hos Amazon.
-      \item Brister hos AppleCare.
-      \item Olycklig koppling av e-postadresser för Me.com och Gmail.
-      \item Detta gav dem även Twitter.
+      \item Amazon and AppleCare had incompatible security.
+      \item An unfortunate connection between email addresses (me.com, Gmail).
     \end{itemize}
   \end{example}
 \end{frame}
