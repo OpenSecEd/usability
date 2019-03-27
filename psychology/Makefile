@@ -4,42 +4,30 @@ all: psychology.pdf
 SRC+=		psychology.tex abstract.tex psychology.bib
 SRC+= 		contents.tex
 
-FIGURES+= 	security.png
 FIGURES+= 	citations.png
-FIGURES+= 	password_strength.png
-FIGURES+= 	pet_security_question.png
 
-psychology.pdf: ${SRC} ${FIGURES}
-
-security.png:
-	wget -O $@ http://imgs.xkcd.com/comics/security.png 
+psychology.pdf: ${SRC} ${FIGURES} beamer-didactic.sty
 
 citations.png:
 	wget -O $@ http://imgs.xkcd.com/comics/citations.png
 
-password_strength.png:
-	wget -O $@ http://imgs.xkcd.com/comics/password_strength.png
 
-pet_security_question.gif:
-	wget -O $@ http://safr.kingfeatures.com/idn/cnfeed/zone/js/content.php?file=aHR0cDovL3NhZnIua2luZ2ZlYXR1cmVzLmNvbS9CaXphcnJvLzIwMTIvMDkvQml6YXJyb19wLjIwMTIwOTI3XzYxNi5naWY=
+beamer-didactic.sty: ../beamer-didactic/beamer-didactic.sty
+	${LN} $< $@
 
-pet_security_question.png: pet_security_question.gif
-	convert $^ $@
-
-password_reuse.png:
-	wget -O $@ http://imgs.xkcd.com/comics/password_reuse.png
+../beamer-didactic/%:
+	${MAKE} -C $(dir $@) $(notdir $@)
 
 
 .PHONY: clean
 clean:
 	${RM} psychology.pdf
+	${MAKE} -C ../beamer-didactic clean
 
-
-.PHONY: clean-depends
-clean-depends:
-	${RM} security.png citations.png password_strength.png
-	${RM} pet_security_question.gif pet_security_question.png
-	${RM} password_reuse.png
+.PHONY: distclean
+distclean:
+	${RM} citations.png
+	${MAKE} -C ../beamer-didactic distclean
 
 
 INCLUDE_MAKEFILES=../makefiles

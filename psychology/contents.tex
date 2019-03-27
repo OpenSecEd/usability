@@ -1,3 +1,5 @@
+\mode*
+
 % Since this a solution template for a generic talk, very little can
 % be said about how it should be structured. However, the talk length
 % of between 15min and 45min and the theme suggest that you stick to
@@ -11,57 +13,107 @@
 
 \section{How humans function}
 
-\subsection{Grundläggande psykologi}
+\subsection{Some basic concepts}
 
 \begin{frame}
-  \begin{block}{Mental models}
+  \begin{definition}[Mental models]
     \begin{itemize}
-      \item Mentala modeller låter oss identifiera människor, ljud, 
-        \enquote{koncept} bättre än datorer.
-
-      \item Dock gör oss även sårbara när fel modell aktiveras eller modellen 
-        inte är i linje med verkligheten.
+      \item Mental models allows us to reason about the real world.
+      \item They're simplifications of real world items.
     \end{itemize}
-  \end{block}
+  \end{definition}
 
-  \pause{}
+  \pause
 
-  \begin{example}[Säker anslutning]
+  \begin{example}
     \begin{itemize}
-      \item Användaren förstår inte SSL/TLS\@.
-      \item Hänglåset betyder säkerhet.
-      \item En phishingsida har ett signerat certifikat.
+      \item Water tap: the more you open, the more water flows.
+      \item Thermostat: the higher temperature you put, the faster the place 
+        heats up?
+      \item Stove: increase the setting, heat up faster.
     \end{itemize}
   \end{example}
 \end{frame}
 
 \begin{frame}
-  \begin{block}{Capture errors}
-    Ett inövat beteende används istället för korrekt.
-  \end{block}
+  \begin{example}[Programming]
+    \begin{itemize}
+      \item The integers are infinite.
+      \item The computer does everything modulo \(2^{32}\) or \(2^{64}\).
+    \end{itemize}
+  \end{example}
+\end{frame}
 
-  \pause{}
+\begin{frame}
+  \begin{example}[Secure connection]
+    \begin{itemize}
+      \item Users don't understand SSL/TLS\@.
+      \item The padlock in the browser means we're secure?
+      \item A phishing page has a signed certificate \dots
+    \end{itemize}
+  \end{example}
+
+  \pause
 
   \begin{example}
     \begin{itemize}
-      \item Svänger ut på motorvägen mot Sundsvall istället för Härnösand.
-      \item Åker hem istället för till affären efter jobbet.
-      \item Klickar \enquote{automatiskt} på OK-knappen utan att tänka efter.
+      \item Users don't know which part of the interface is trustworthy.
+      \item The webpage shows a green padlock \dots
+    \end{itemize}
+  \end{example}
+\end{frame}
+
+\begin{frame}
+  \begin{definition}[Capture errors]
+    A trained behaviour is used instead of the correct one.
+  \end{definition}
+
+  \pause
+
+  \begin{example}
+    \begin{itemize}
+      \item I drive to work everyday.
+      \item The few times I'm supposed to drive the other direction \dots
+      \item I still drive towards work and must turn.
+      \item I go home instead of to the store.
+      \item Users automatically click the OK button without thinking \dots
     \end{itemize}
   \end{example}
 \end{frame}
 
 \begin{frame}
   \begin{block}{Post-completion error}
-    När målet är nått är uppgiften genomförd, eller \dots
+    When the goal is reached, the task is complete.
+    Or not.
   \end{block}
 
-  \pause{}
+  \pause
 
   \begin{example}
     \begin{itemize}
-      \item Uttagsautomater som ger pengarna före kortet gör att fler glömmer 
-        kortet i automaten.
+      \item There's a reason ATMs return your card before the cash.
+      \item Otherwise people will forget their cards in the ATMs.
+    \end{itemize}
+  \end{example}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Cognitive load}
+    \begin{itemize}
+      \item Cognitive load affects us a lot.
+      \item Stress, multitasking, \etc.
+      \item The \enquote{autopilot} kicks in.
+    \end{itemize}
+  \end{block}
+  
+  \pause
+
+  \begin{example}
+    \begin{itemize}
+      \item Most times you drive the wrong way (capture error), you've
+      \item been thinking deeply about something,
+      \item been engaged in a conversation with someone,
+      \item \etc.
     \end{itemize}
   \end{example}
 \end{frame}
@@ -69,54 +121,40 @@
 \begin{frame}
   \begin{figure}
     \includegraphics[height=0.7\textheight]{citations.png}
-    \caption{En kort seriestrip om hur vi är okritiska mot text som, till 
-    synes, har referenser.
-    Bild:~\cite{xkcd906}.}
+    \caption{A short comic on illustrates these types of effects.
+      Image:~\cite{xkcd906}.}
   \end{figure}
-\end{frame}
-
-\begin{frame}
-  \begin{block}{Cognitive load}
-    \begin{itemize}
-      \item Kognitiv belastning påverkar oss hårt.
-      \item Handlingar som följer någon form av regel.
-      \item Vid hög kognitiv belastning kan fel regel följas, exempelvis 
-        starkaste regeln istället för lämpligaste.
-    \end{itemize}
-  \end{block}
-  
-  \pause{}
-
-  \begin{example}
-    \begin{itemize}
-      \item Det är säkert då det står \enquote{https} i URL:en, eller ikonen 
-        med hänglåset.
-      \item Att hitta bankens namn är en starkare regel än att tänka på dess 
-        position; \url{https://www.swedbank.se.fraudulentbanks.com}.
-    \end{itemize}
-  \end{example}
 \end{frame}
 
 \subsection{Biases}
 
 \begin{frame}
   \begin{block}{Automation bias}
-    We trust the computer to have done the work properly, so we relax.
+    We trust the computer to have done the work properly.
   \end{block}
+
+  \begin{remark}
+    \begin{itemize}
+      \item The computer is perceived as objective.
+      \item We don't question it.
+      \item But the computer is \emph{not objective}.
+      \item These algorithms are also biased.
+    \end{itemize}
+  \end{remark}
+\end{frame}
+
+\begin{frame}
   \begin{example}
     \begin{itemize}
-      \item Två studier visar att tilliten till resultaten från Google är stor.
+      \item Two studies looked at how people use Google results.
 
-      \item Studenter valde länkar högre upp i träfflistan trots att 
-        sammanfattningarna var mindre relevanta än träffar längre 
-        ned~\cite{Pan2007igw}.
+      \item Students picked links higher up although the abstracts were less 
+        relevant~\cite{Pan2007igw}.
 
-      \item I en nyligare genomförd studie~\cite{Epstein2013dar} visas att 
-        sökresultat kan förändra personers röstningspreferenser utan att 
-        uppmärksammas.
+      \item The researchers could affect the voting preferences by changing the 
+        search results~\cite{Epstein2013dar}.
 
-      \item Detta gör sökmotoroptimering till ett farligt område.
-
+      \item The subjects were not aware of this change \dots
     \end{itemize}
   \end{example}
 \end{frame}
@@ -126,7 +164,7 @@
     We seek out information that confirms our beliefs.
   \end{block}
 
-  \pause{}
+  \pause
 
   \begin{example}
     \begin{itemize}
@@ -137,11 +175,11 @@
     \end{itemize}
   \end{example}
 
-  \pause{}
+  \pause
 
-  \begin{block}{Reverse-authorization fallacy}
+  \begin{remark}{Reverse-authorization fallacy}
     Give me the username and password and I'll verify them.
-  \end{block}
+  \end{remark}
 \end{frame}
 
 \begin{frame}
@@ -149,7 +187,7 @@
     We rather accept plausible but wrong, than implausible but correct.
   \end{block}
 
-  \pause{}
+  \pause
 
   \begin{example}
     \begin{itemize}
@@ -251,47 +289,47 @@
 %  \end{itemize}
 %\end{frame}
 
-\subsection{Socialpsykologi}
-
-\begin{frame}
-  \begin{itemize}
-    \item Det sociala samspelet har stor inverkan på individen.
-
-    \item 1951 visades att en individ kunde bortse från uppenbara bevis bara 
-      för att följa gruppen.
-
-      \pause{}
-
-    \item Vidare har visats att individer kan göra helt moralvidriga saker 
-      under order från en auktoritet, Officer Scott 1995--2005:
-      \begin{itemize}
-        \item Ringde upp restaurangchefer och låtsades vara polis.
-        \item Tvingade fram strippsökningar av oskyldiga unga anställda.
-      \end{itemize}
-
-      \pause{}
-
-    \item Detta kan ske även utan order från en auktoritet, Stanford Prisoner 
-      Experiment 1971:
-      \begin{itemize}
-        \item 12 vakter, 12 fångar.
-        \item Vakterna blev snabbt sadistiska auktoriteter.
-      \end{itemize}
-
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \begin{itemize}
-    \item Sociala medier?
-
-      \pause{}
-
-    \item Det ser ut som att \enquote{alla andra} har gjort det.
-    \item Exempelvis bedrägerier som sprids via Facebook.
-    \item Oftast är de orsakade av sabotageprogram.
-  \end{itemize}
-\end{frame}
+%\subsection{Socialpsykologi}
+%
+%\begin{frame}
+%  \begin{itemize}
+%    \item Det sociala samspelet har stor inverkan på individen.
+%
+%    \item 1951 visades att en individ kunde bortse från uppenbara bevis bara 
+%      för att följa gruppen.
+%
+%      \pause{}
+%
+%    \item Vidare har visats att individer kan göra helt moralvidriga saker 
+%      under order från en auktoritet, Officer Scott 1995--2005:
+%      \begin{itemize}
+%        \item Ringde upp restaurangchefer och låtsades vara polis.
+%        \item Tvingade fram strippsökningar av oskyldiga unga anställda.
+%      \end{itemize}
+%
+%      \pause{}
+%
+%    \item Detta kan ske även utan order från en auktoritet, Stanford Prisoner 
+%      Experiment 1971:
+%      \begin{itemize}
+%        \item 12 vakter, 12 fångar.
+%        \item Vakterna blev snabbt sadistiska auktoriteter.
+%      \end{itemize}
+%
+%  \end{itemize}
+%\end{frame}
+%
+%\begin{frame}
+%  \begin{itemize}
+%    \item Sociala medier?
+%
+%      \pause{}
+%
+%    \item Det ser ut som att \enquote{alla andra} har gjort det.
+%    \item Exempelvis bedrägerier som sprids via Facebook.
+%    \item Oftast är de orsakade av sabotageprogram.
+%  \end{itemize}
+%\end{frame}
 
 %\begin{frame}{Kognitiv dissonansteori}
 %  \begin{itemize}
