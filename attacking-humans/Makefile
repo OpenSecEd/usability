@@ -18,10 +18,23 @@ beamer-didactic.sty: ../beamer-didactic/beamer-didactic.sty
 	${MAKE} -C $(dir $@) $(notdir $@)
 
 
+.PHONY: all
+all: README.md
+
+README.md: video.md abstract.md
+	${CAT} $^ > $@
+
+TEX2MDFLAGS=	-s -t markdown_strict --bibliography attacking-humans.bib
+
+abstract.md: abstract.tex
+	${CONVERT.tex.md}
+
+
 .PHONY: clean
 clean:
 	${RM} attacking-humans.pdf
 	${MAKE} -C ../beamer-didactic clean
+	${RM} abstract.md
 
 .PHONY: distclean
 distclean:
@@ -31,3 +44,4 @@ distclean:
 
 INCLUDE_MAKEFILES=../makefiles
 include ${INCLUDE_MAKEFILES}/tex.mk
+include ${INCLUDE_MAKEFILES}/doc.mk
