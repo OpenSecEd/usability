@@ -1,3 +1,4 @@
+# Attacking humans
 [![Video: Attacking 
 humans](https://img.youtube.com/vi/8rS462NDtXo/hqdefault.jpg)](https://youtu.be/8rS462NDtXo)
 
@@ -15,5 +16,5 @@ their strengths and weaknesses, in Chapter 2 “Usability and Psychology”
 of  (Anderson 2008).
 
 Anderson, Ross J. 2008. *Security Engineering: A Guide to Building
-Dependable Distributed Systems*. 2nd ed. Indianapolis, IN: Wiley.
+Dependable Distributed Systems*. 2nd ed. Indianapolis, IN: Wiley.
 <http://www.cl.cam.ac.uk/~rja14/book.html>.

@@ -22,7 +22,8 @@ beamer-didactic.sty: ../beamer-didactic/beamer-didactic.sty
 all: README.md
 
 README.md: video.md abstract.md
-	${CAT} $^ > $@
+	echo "# Attacking humans" > $@
+	${CAT} $^ >> $@
 
 TEX2MDFLAGS=	-s -t markdown_strict --bibliography bibliography.bib
 
