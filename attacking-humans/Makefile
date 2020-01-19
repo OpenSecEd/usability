@@ -1,7 +1,7 @@
 .PHONY: all
-all: attacking-humans.pdf
+all: attacking-humans.pdf README.md
 
-SRC+=		attacking-humans.tex abstract.tex attacking-humans.bib
+SRC+=		attacking-humans.tex abstract.tex bibliography.bib
 SRC+= 		contents.tex
 
 FIGURES+= 	security.png
@@ -18,6 +18,18 @@ beamer-didactic.sty: ../beamer-didactic/beamer-didactic.sty
 	${MAKE} -C $(dir $@) $(notdir $@)
 
 
+.PHONY: all
+all: README.md
+
+README.md: video.md abstract.md
+	${CAT} $^ > $@
+
+TEX2MDFLAGS=	-s -t markdown_strict --bibliography bibliography.bib
+
+abstract.md: abstract.tex bibliography.bib
+	${CONVERT.tex.md}
+
+
 .PHONY: clean
 clean:
 	${RM} attacking-humans.pdf
@@ -31,3 +43,4 @@ distclean:
 
 INCLUDE_MAKEFILES=../makefiles
 include ${INCLUDE_MAKEFILES}/tex.mk
+include ${INCLUDE_MAKEFILES}/doc.mk

@@ -1,7 +1,7 @@
 .PHONY: all
 all: psychology.pdf
 
-SRC+=		psychology.tex abstract.tex psychology.bib
+SRC+=		psychology.tex abstract.tex bibliography.bib
 SRC+= 		contents.tex
 
 FIGURES+= 	citations.png
@@ -19,6 +19,18 @@ beamer-didactic.sty: ../beamer-didactic/beamer-didactic.sty
 	${MAKE} -C $(dir $@) $(notdir $@)
 
 
+.PHONY: all
+all: README.md
+
+README.md: video.md abstract.md
+	${CAT} $^ > $@
+
+TEX2MDFLAGS=	-s -t markdown_strict --bibliography bibliography.bib
+
+abstract.md: abstract.tex bibliography.bib
+	${CONVERT.tex.md}
+
+
 .PHONY: clean
 clean:
 	${RM} psychology.pdf
@@ -32,3 +44,4 @@ distclean:
 
 INCLUDE_MAKEFILES=../makefiles
 include ${INCLUDE_MAKEFILES}/tex.mk
+include ${INCLUDE_MAKEFILES}/doc.mk
