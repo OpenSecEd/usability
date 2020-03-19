@@ -1,7 +1,7 @@
 .PHONY: all
-all: attacking-humans.pdf
+all: attacking-humans.pdf README.md
 
-SRC+=		attacking-humans.tex abstract.tex attacking-humans.bib
+SRC+=		attacking-humans.tex abstract.tex bibliography.bib
 SRC+= 		contents.tex
 
 FIGURES+= 	security.png
@@ -22,11 +22,12 @@ beamer-didactic.sty: ../beamer-didactic/beamer-didactic.sty
 all: README.md
 
 README.md: video.md abstract.md
-	${CAT} $^ > $@
+	echo "# Attacking humans" > $@
+	${CAT} $^ >> $@
 
-TEX2MDFLAGS=	-s -t markdown_strict --bibliography attacking-humans.bib
+TEX2MDFLAGS=	-s -t markdown_strict --bibliography bibliography.bib
 
-abstract.md: abstract.tex
+abstract.md: abstract.tex bibliography.bib
 	${CONVERT.tex.md}
 
 
